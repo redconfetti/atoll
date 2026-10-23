@@ -1,0 +1,141 @@
+; SNES hardware registers and helper macros
+
+.macro A8
+    sep #$20
+    .a8
+.endmacro
+.macro A16
+    rep #$20
+    .a16
+.endmacro
+.macro I8
+    sep #$10
+    .i8
+.endmacro
+.macro I16
+    rep #$10
+    .i16
+.endmacro
+
+; PPU
+INIDISP  = $2100
+OBJSEL   = $2101
+OAMADDL  = $2102
+OAMADDH  = $2103
+OAMDATA  = $2104
+BGMODE   = $2105
+MOSAIC   = $2106
+BG1SC    = $2107
+BG2SC    = $2108
+BG3SC    = $2109
+BG4SC    = $210A
+BG12NBA  = $210B
+BG34NBA  = $210C
+BG1HOFS  = $210D        ; also M7HOFS
+BG1VOFS  = $210E        ; also M7VOFS
+BG3HOFS  = $2111
+BG3VOFS  = $2112
+VMAIN    = $2115
+VMADD    = $2116
+VMDATAL  = $2118
+VMDATAH  = $2119
+M7SEL    = $211A
+M7A      = $211B
+M7B      = $211C
+M7C      = $211D
+M7D      = $211E
+M7X      = $211F
+M7Y      = $2120
+CGADD    = $2121
+CGDATA   = $2122
+W12SEL   = $2123
+W34SEL   = $2124
+WOBJSEL  = $2125
+WH0      = $2126
+WH1      = $2127
+WH2      = $2128
+WH3      = $2129
+WBGLOG   = $212A
+WOBJLOG  = $212B
+TM       = $212C
+TS       = $212D
+TMW      = $212E
+TSW      = $212F
+CGWSEL   = $2130
+CGADSUB  = $2131
+COLDATA  = $2132
+SETINI   = $2133
+WMDATA   = $2180
+WMADDL   = $2181
+WMADDM   = $2182
+WMADDH   = $2183
+
+; APU ports
+APUIO0   = $2140
+APUIO1   = $2141
+APUIO2   = $2142
+APUIO3   = $2143
+
+; CPU
+NMITIMEN = $4200
+WRMPYA   = $4202
+WRMPYB   = $4203
+WRDIVL   = $4204
+WRDIVH   = $4205
+WRDIVB   = $4206
+MDMAEN   = $420B
+HDMAEN   = $420C
+MEMSEL   = $420D
+RDNMI    = $4210
+HVBJOY   = $4212
+RDDIVL   = $4214
+RDMPYL   = $4216
+JOY1L    = $4218
+
+DMAP0 = $4300
+BBAD0 = $4301
+A1T0  = $4302
+A1B0  = $4304
+DAS0  = $4305
+DMAP1 = $4310
+BBAD1 = $4311
+A1T1  = $4312
+A1B1  = $4314
+DMAP2 = $4320
+BBAD2 = $4321
+A1T2  = $4322
+A1B2  = $4324
+DMAP3 = $4330
+BBAD3 = $4331
+A1T3  = $4332
+A1B3  = $4334
+DMAP4 = $4340
+BBAD4 = $4341
+A1T4  = $4342
+A1B4  = $4344
+DMAP5 = $4350
+BBAD5 = $4351
+A1T5  = $4352
+A1B5  = $4354
+DMAP6 = $4360
+BBAD6 = $4361
+A1T6  = $4362
+A1B6  = $4364
+DMAP7 = $4370
+BBAD7 = $4371
+A1T7  = $4372
+A1B7  = $4374
+
+; Joypad bits (16-bit read of $4218)
+JOY_B      = $8000
+JOY_Y      = $4000
+JOY_SELECT = $2000
+JOY_START  = $1000
+JOY_UP     = $0800
+JOY_DOWN   = $0400
+JOY_LEFT   = $0200
+JOY_RIGHT  = $0100
+JOY_A      = $0080
+JOY_X      = $0040
+JOY_L      = $0020
+JOY_R      = $0010
