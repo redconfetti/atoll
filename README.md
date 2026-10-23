@@ -9,6 +9,12 @@ by HDMA from precomputed ROM tables. The mushroom cloud is made with HDMA window
 spans and colour math. Sound runs without an SPC700 program: the game writes
 DSP registers directly through the APU's boot ROM loader.
 
+## About this project
+
+This game was generated with [Claude Code](https://claude.com/claude-code) as
+a demo of its ability to make SNES games. The assembly source, the asset
+generator, the build tools and this README were all written by Claude Code.
+
 ## Mission
 
 1. Follow the red compass mark to the atoll.
