@@ -9,6 +9,11 @@ by HDMA from precomputed ROM tables. The mushroom cloud is made with HDMA window
 spans and colour math. Sound runs without an SPC700 program: the game writes
 DSP registers directly through the APU's boot ROM loader.
 
+## Download
+
+Get the latest ROM from the
+[Releases page](https://github.com/redconfetti/atoll/releases/latest).
+
 ## About this project
 
 This game was generated with [Claude Code](https://claude.com/claude-code) as
@@ -42,7 +47,15 @@ how far you turned away.
 Requirements:
 
 - [cc65](https://cc65.github.io/) (`ca65` and `ld65`)
-- Python 3
+- Python 3 with Pillow
+- The URW base35 fonts and the Linux console fonts, which the asset generator
+  reads from `/usr/share`
+
+On Debian or Ubuntu:
+
+```sh
+sudo apt install cc65 python3-pil fonts-urw-base35 console-setup-linux
+```
 
 ```sh
 ./build.sh                    # writes build/ww11.sfc
@@ -61,6 +74,16 @@ Extra arguments are passed to `ca65`, which enables these test builds:
 ./build.sh build/demo.sfc -D DEMO=1                    # autopilot flies the whole bomb run
 ./build.sh build/up.sfc   -D DEMO=1 -D DEMO_HOLD=JOY_UP  # also hold a button throughout
 ./build.sh build/alt.sfc  -D DEMO=1 -D DEMO_ALT=1        # alternate climbing and descending
+```
+
+## Releasing
+
+Pushing a version tag builds the ROM on GitHub Actions and publishes it as a
+release (see `.github/workflows/release.yml`):
+
+```sh
+git tag v1.0.0
+git push origin v1.0.0
 ```
 
 ## Running
@@ -84,4 +107,4 @@ tools/shot.sh build/demo.sfc build/s 2 10 20   # screenshots at 2, 10 and 20 s
 | `tools/build_assets.py` | Generates the map, tiles, palettes, text screens and Mode 7 tables |
 | `tools/mkrom.py`        | Builds the final 4 MB ROM image                  |
 | `tools/shot.sh`         | Headless screenshot capture                      |
-| `build/`                | Generated assets, ROMs and test screenshots      |
+| `build/`                | Generated assets and ROMs (not tracked in git)   |
