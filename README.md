@@ -9,6 +9,21 @@ by HDMA from precomputed ROM tables. The mushroom cloud is made with HDMA window
 spans and colour math. Sound runs without an SPC700 program: the game writes
 DSP registers directly through the APU's boot ROM loader.
 
+## Screenshots
+
+| | |
+|:---:|:---:|
+| ![Title screen](assets/screenshots/01-title.png) | ![Mission briefing](assets/screenshots/02-briefing.png) |
+| Title screen | Mission briefing |
+| ![Approaching the atoll](assets/screenshots/03-approach.png) | ![Target fleet in the sight](assets/screenshots/04-target-near.png) |
+| Approaching the atoll | Target fleet in the sight |
+| ![Bomb away, breaking away](assets/screenshots/05-bomb-away.png) | ![Shock wave](assets/screenshots/06-shock-wave.png) |
+| Bomb away: breaking away | Detonation, seen from the tail camera |
+| ![Mushroom cloud](assets/screenshots/07-mushroom-cloud.png) | ![Results screen](assets/screenshots/08-results.png) |
+| Mushroom cloud over the lagoon | Results |
+
+The screenshots were taken from a `DEMO=1` build with `tools/shot.sh`.
+
 ## Download
 
 Get the latest ROM from the
@@ -107,4 +122,5 @@ tools/shot.sh build/demo.sfc build/s 2 10 20   # screenshots at 2, 10 and 20 s
 | `tools/build_assets.py` | Generates the map, tiles, palettes, text screens and Mode 7 tables |
 | `tools/mkrom.py`        | Builds the final 4 MB ROM image                  |
 | `tools/shot.sh`         | Headless screenshot capture                      |
+| `assets/screenshots/`   | Screenshots shown in this README                 |
 | `build/`                | Generated assets and ROMs (not tracked in git)   |
